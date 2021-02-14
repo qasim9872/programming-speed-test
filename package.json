@@ -2,7 +2,7 @@
   "name": "react-typing-speed",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://qasim9872.github.io/react-modules-boilerplate",
+  "homepage": "https://qasim9872.github.io/typing-speed-test",
   "scripts": {
     "prestart": "npm run build:css",
     "start": "HOST=0.0.0.0 craco start",
