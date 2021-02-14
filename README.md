@@ -1,6 +1,52 @@
-# Getting Started with Create React App
+# React Typing Speed
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Problem Definition
+
+One of the main act carried out by a software engineer in their day to day life is typing.
+Before they can improve, they first need to **evaluate their proficiency** at typing.
+
+There are currently no test or resources available that provide a way to calculate the CPM (Characters per minute) for writing code. This app will aim to provide exactly that.
+
+## Software requirements
+
+The following section will define the list of functional and non function requirements
+
+### User stories & functional requirements
+
+- As a user, I want to be able to configure the typing test so that it is relevant to me
+
+  1. The user will be view/edit/update the programming language (from list of pre-configured languages)
+  2. The user will not be able to alter the selected language while the test is running
+
+- As a user, I want to be able to view the test information as I take the test so I can perform accordingly
+
+  1. If the test is ongoing, the timer will continue to countdown
+  2. The WPM & CPM will update based on the amount of words/characters typed by the user
+
+- As a user, I want to be able to take a typing test so that I can find out my proficiency in typing code
+
+  1. The timer for the test will start when the user types in the input field
+  2. The correctly typed characters should be green, while incorrectly typed characters should be red
+  3. The character being typed should be highlighted
+  4. The code snippet display should scroll and ensure the current line stays in focus
+
+- As a user, I want to be able to share my test result on social media so that others know how proficient I am
+
+  1. When the test finishes, provide an option to share the result on social media (platforms to be decided)
+  2. User can click on the icon for the relevant platform and it should allow sharing on that platform
+
+- <s>As a user, I want to be able to view my last score so that I can try and improve it</s>
+
+  > Note: Decided to drop this requirement for simplicity
+
+  1. The user score will be cached in local storage
+  2. On page load, the last score of the user will be fetched from the local storage and displayed
+
+### Designs
+
+#### Home
+
+![Home](./designs/home.drawio.png)
 
 ## Available Scripts
 
@@ -28,19 +74,3 @@ The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
