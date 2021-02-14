@@ -1,4 +1,4 @@
-# React Typing Speed
+# Programming Speed Test
 
 ## Problem Definition
 
