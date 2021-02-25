@@ -1,8 +1,8 @@
 {
-  "name": "programming-speed-test",
+  "name": "speedy-coder",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://qasim9872.github.io/programming-speed-test",
+  "homepage": "https://qasim9872.github.io/speedy-coder",
   "scripts": {
     "prestart": "npm run build:css",
     "start": "HOST=0.0.0.0 craco start",

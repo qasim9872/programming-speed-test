@@ -1,10 +1,10 @@
 import ProviderWithContextHoc from '../utils/hoc/provider-with-context';
 import myGlobalConfig from './global.constants';
-import myCodeExampleMap from './code-example.constants';
+import speedyCoder from './speedy-coder.constants';
 
 const constants = {
   myGlobalConfig,
-  myCodeExampleMap,
+  speedyCoder,
 };
 
 export const {

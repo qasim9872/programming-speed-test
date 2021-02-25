@@ -1,4 +1,4 @@
-# Programming Speed Test
+# Speedy Coder
 
 ## Problem Definition
 
