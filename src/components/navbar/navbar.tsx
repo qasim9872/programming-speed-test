@@ -1,24 +1,24 @@
 import React, { useState } from 'react';
 import { IconType } from 'react-icons';
 import { useLocation } from 'react-router-dom';
-import Module from '../../modules/_shared/module.interface';
+import Layout from '../../layouts/_shared/layout.interface';
 import NavLink from './nav-link';
 
 const Navbar: React.FC<{
   title: string;
-  modules: Module[];
+  layouts: Layout[];
   Logo?: IconType;
-}> = ({ title, Logo, modules }) => {
-  const [currentTab, setCurrentTab] = useState(modules[0]?.name || '');
+}> = ({ title, Logo, layouts }) => {
+  const [currentTab, setCurrentTab] = useState(layouts[0]?.name || '');
 
   const location = useLocation();
   React.useEffect(() => {
-    const module = modules.find(
+    const module = layouts.find(
       ({ routeProps }) => routeProps.path === location.pathname,
     );
 
     setCurrentTab(module?.name || '');
-  }, [modules, location]);
+  }, [layouts, location]);
 
   return (
     <header className="flex w-full bg-gray-600 justify-between items-center px-8 py-3 shadow-md">
@@ -27,7 +27,7 @@ const Navbar: React.FC<{
         <h1 className="text-lg uppercase">{title}</h1>
       </div>
       <ul className="flex justify-evenly">
-        {modules.map((module) => (
+        {layouts.map((module) => (
           <NavLink
             currentTab={currentTab}
             key={module.name}

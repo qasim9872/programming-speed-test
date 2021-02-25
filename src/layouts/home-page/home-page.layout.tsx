@@ -1,11 +1,11 @@
 import React from 'react';
-import Module from '../_shared/module.interface';
+import Layout from '../_shared/layout.interface';
 
 const HomeView = () => {
-  return <div>Home Module</div>;
+  return <div>Home Layout</div>;
 };
 
-const Home: Module = {
+const Home: Layout = {
   name: 'Home',
   enable: true,
   showInNav: false,

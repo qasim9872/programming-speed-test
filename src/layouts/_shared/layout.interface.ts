@@ -5,7 +5,7 @@ interface RouteProps extends ComponentProps<typeof Route> {
   path: string;
 }
 
-export default interface Module {
+export default interface Layout {
   enable: boolean;
   showInNav: boolean;
 
