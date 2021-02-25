@@ -1,9 +1,5 @@
-import React from 'react';
 import Layout from '../_shared/layout.interface';
-
-const HomeView = () => {
-  return <div>Home Layout</div>;
-};
+import HomePageView from './home-page.view';
 
 const Home: Layout = {
   name: 'Home',
@@ -12,7 +8,7 @@ const Home: Layout = {
   routeProps: {
     path: '/',
     exact: true,
-    component: HomeView,
+    component: HomePageView,
   },
 };
 
