@@ -1,7 +1,6 @@
-import Home from './home/home.module';
-import About from './about/about.module';
+import SpeedTest from './speed-test/speed-test.module';
 
 import Module from './_shared/module.interface';
 
-const modules: Module[] = [Home, About];
+const modules: Module[] = [SpeedTest];
 export default modules;
