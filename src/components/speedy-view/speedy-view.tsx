@@ -10,13 +10,15 @@ const SpeedyView: React.FC<{}> = () => {
   const [{ speedyCoder: speedyCoderConfig }] = useGlobalConstantsHook();
 
   const [levelIndex, setLevelIndex] = useState(0);
+  const [wordsPerMinute /* , setWordsPerMinute */] = useState(0);
+  const [accuracy /* , setAccuracy */] = useState(0);
   const [levelConfig, setLevelConfig] = useState<CodeLevel>();
 
-  const { timeLeft, actions } = useCountDown(
+  const { timeLeft /* , actions */ } = useCountDown(
     speedyCoderConfig.TOTAL_TIME,
     speedyCoderConfig.INTERVAL,
   );
-  const { start: startCountDown, reset: resetCountDown } = actions;
+  //   const { start: startCountDown, reset: resetCountDown } = actions;
 
   // set state to level 1
   useEffect(() => {
@@ -38,8 +40,8 @@ const SpeedyView: React.FC<{}> = () => {
         metrics={{
           level: `${levelIndex + 1}. ${levelConfig?.title}`,
           timeLeft: timeLeft || speedyCoderConfig.TOTAL_TIME,
-          wordsPerMinute: '25',
-          accuracy: '100%',
+          wordsPerMinute,
+          accuracy,
         }}
       />
       {levelConfig && (
