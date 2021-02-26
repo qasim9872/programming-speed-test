@@ -1,22 +1,25 @@
 {
   "files": {
-    "main.css": "/speedy-coder/static/css/main.7ac85549.chunk.css",
-    "main.js": "/speedy-coder/static/js/main.9796957c.chunk.js",
-    "main.js.map": "/speedy-coder/static/js/main.9796957c.chunk.js.map",
-    "runtime-main.js": "/speedy-coder/static/js/runtime-main.b530a8ea.js",
-    "runtime-main.js.map": "/speedy-coder/static/js/runtime-main.b530a8ea.js.map",
-    "static/js/2.1fcddb2f.chunk.js": "/speedy-coder/static/js/2.1fcddb2f.chunk.js",
-    "static/js/2.1fcddb2f.chunk.js.map": "/speedy-coder/static/js/2.1fcddb2f.chunk.js.map",
-    "static/js/3.a502e1bf.chunk.js": "/speedy-coder/static/js/3.a502e1bf.chunk.js",
-    "static/js/3.a502e1bf.chunk.js.map": "/speedy-coder/static/js/3.a502e1bf.chunk.js.map",
+    "main.css": "/speedy-coder/static/css/main.acafa17e.chunk.css",
+    "main.js": "/speedy-coder/static/js/main.10da6e49.chunk.js",
+    "main.js.map": "/speedy-coder/static/js/main.10da6e49.chunk.js.map",
+    "runtime-main.js": "/speedy-coder/static/js/runtime-main.ab2d08b3.js",
+    "runtime-main.js.map": "/speedy-coder/static/js/runtime-main.ab2d08b3.js.map",
+    "static/css/2.2149cc09.chunk.css": "/speedy-coder/static/css/2.2149cc09.chunk.css",
+    "static/js/2.6d01a350.chunk.js": "/speedy-coder/static/js/2.6d01a350.chunk.js",
+    "static/js/2.6d01a350.chunk.js.map": "/speedy-coder/static/js/2.6d01a350.chunk.js.map",
+    "static/js/3.65ecf5df.chunk.js": "/speedy-coder/static/js/3.65ecf5df.chunk.js",
+    "static/js/3.65ecf5df.chunk.js.map": "/speedy-coder/static/js/3.65ecf5df.chunk.js.map",
     "index.html": "/speedy-coder/index.html",
-    "static/css/main.7ac85549.chunk.css.map": "/speedy-coder/static/css/main.7ac85549.chunk.css.map",
-    "static/js/2.1fcddb2f.chunk.js.LICENSE.txt": "/speedy-coder/static/js/2.1fcddb2f.chunk.js.LICENSE.txt"
+    "static/css/2.2149cc09.chunk.css.map": "/speedy-coder/static/css/2.2149cc09.chunk.css.map",
+    "static/css/main.acafa17e.chunk.css.map": "/speedy-coder/static/css/main.acafa17e.chunk.css.map",
+    "static/js/2.6d01a350.chunk.js.LICENSE.txt": "/speedy-coder/static/js/2.6d01a350.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.b530a8ea.js",
-    "static/js/2.1fcddb2f.chunk.js",
-    "static/css/main.7ac85549.chunk.css",
-    "static/js/main.9796957c.chunk.js"
+    "static/js/runtime-main.ab2d08b3.js",
+    "static/css/2.2149cc09.chunk.css",
+    "static/js/2.6d01a350.chunk.js",
+    "static/css/main.acafa17e.chunk.css",
+    "static/js/main.10da6e49.chunk.js"
   ]
 }
