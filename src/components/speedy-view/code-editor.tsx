@@ -8,7 +8,7 @@ const CodeEditor: React.FC<{
   backgroundText: string;
   language?: 'javascript' | 'html' | 'css';
   onChange?: (event: React.ChangeEvent<HTMLTextAreaElement>) => void;
-}> = ({ language = 'javascript', name, backgroundText, onChange }) => {
+}> = ({ language = 'javascript', name, backgroundText }) => {
   const [myCodeText, setMyCodeText] = useState('');
 
   useEffect(() => {

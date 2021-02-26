@@ -1,29 +1,38 @@
+export interface CodeLevel {
+  title: string;
+  codeToType: string;
+}
+
+// function isPrimeNumber(numberToCheck) {
+//     let isPrime = true;
+
+//     if (numberToCheck > 1) {
+
+//     }
+
+//     return isPrime;
+// }
+
+const levels: CodeLevel[] = [
+  { title: 'Hello World', codeToType: "console.log('Hello World');" },
+  {
+    title: 'Add Two Numbers',
+    codeToType: `function add(num1, num2) {
+    return num1 + num2;
+}`,
+  },
+  {
+    title: 'Is Prime Number',
+    codeToType: `function add(num1, num2) {
+    return num1 + num2;
+}`,
+  },
+];
+
 const SpeedyCoder = {
   TOTAL_TIME: 60 * 1000, // 60 seconds
   INTERVAL: 1000,
-  CODE_MAP: {
-    javascript: `// program to display fibonacci sequence using recursion
-function fibonacci(num) {
-    if(num < 2) {
-        return num;
-    }
-    else {
-        return fibonacci(num-1) + fibonacci(num - 2);
-    }
-}
-
-// take nth term input from the user
-const nTerms = prompt('Enter the number of terms: ');
-
-if(nTerms <=0) {
-    console.log('Enter a positive integer.');
-}
-else {
-    for(let i = 0; i < nTerms; i++) {
-        console.log(fibonacci(i));
-    }
-}`,
-  },
+  CODE_LEVELS: levels,
 };
 
 export default SpeedyCoder;

@@ -1,10 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React from 'react';
 
-const useCountDown = (
-  timeToCount = 60 * 1000,
-  interval = 1000,
-): [number, object] => {
+const useCountDown = (timeToCount = 60 * 1000, interval = 1000) => {
   const [timeLeft, setTimeLeft] = React.useState(0);
   const timer = React.useRef<{ [key: string]: number }>({});
 
@@ -35,7 +32,7 @@ const useCountDown = (
     }
   };
 
-  const start = React.useCallback((ttc: number) => {
+  const start = React.useCallback((ttc?: number) => {
     window.cancelAnimationFrame(timer.current.requestId);
 
     const newTimeToCount = ttc !== undefined ? ttc : timeToCount;
@@ -77,7 +74,7 @@ const useCountDown = (
 
   React.useEffect(() => reset, []);
 
-  return [timeLeft, actions];
+  return { timeLeft, actions };
 };
 
 export default useCountDown;
