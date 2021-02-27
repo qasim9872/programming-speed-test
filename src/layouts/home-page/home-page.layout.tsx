@@ -7,7 +7,6 @@ const Home: Layout = {
   showInNav: false,
   routeProps: {
     path: '/',
-    exact: true,
     component: HomePageView,
   },
 };

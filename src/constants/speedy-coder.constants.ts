@@ -21,12 +21,12 @@ const levels: CodeLevel[] = [
     return num1 + num2;
 }`,
   },
-  {
-    title: 'Is Prime Number',
-    codeToType: `function add(num1, num2) {
-    return num1 + num2;
-}`,
-  },
+  //   {
+  //     title: 'Is Prime Number',
+  //     codeToType: `function add(num1, num2) {
+  //     return num1 + num2;
+  // }`,
+  //   },
 ];
 
 const SpeedyCoder = {

@@ -44,9 +44,14 @@ const SpeedyView: React.FC<{}> = () => {
   // update level config
   useEffect(() => {
     const levels = speedyCoderConfig.CODE_LEVELS;
-    const currentLevel = levels[levelIndex];
-
-    setLevelConfig(currentLevel);
+    logger.info(`setting level config => ${levelIndex}`, levels[levelIndex]);
+    if (levels[levelIndex]) {
+      setTypedCode(''); // reset text
+      const currentLevel = levels[levelIndex];
+      setLevelConfig(currentLevel);
+    } else {
+      logger.info('GAME ENDS');
+    }
   }, [levelIndex, speedyCoderConfig]);
 
   // calculate uncorrected errors
@@ -70,6 +75,13 @@ const SpeedyView: React.FC<{}> = () => {
     setUncorrectedErrors(uncorrectedErrorsCount);
   }, [levelConfig, typedCode]);
 
+  // move to the next level when current level is finished
+  useEffect(() => {
+    if (typedCode.length === levelConfig?.codeToType.length) {
+      setLevelIndex((previousLevel) => previousLevel + 1);
+    }
+  }, [levelConfig, typedCode]);
+
   // calculate wpm and corrected wpm
   useEffect(() => {
     const typedCodeLength = typedCode.length;
@@ -83,7 +95,7 @@ const SpeedyView: React.FC<{}> = () => {
       (averageWordsTyped - uncorrectedErrors) / timeTakenMinutes,
     );
 
-    logger.info({
+    logger.debug({
       wpm,
       typedCodeLength,
       uncorrectedErrors,
@@ -109,6 +121,7 @@ const SpeedyView: React.FC<{}> = () => {
         <CodeEditor
           name="speedy-coder"
           language="javascript"
+          code={typedCode}
           backgroundText={levelConfig.codeToType}
           onCodeUpdate={(code) => setTypedCode(code)}
         />

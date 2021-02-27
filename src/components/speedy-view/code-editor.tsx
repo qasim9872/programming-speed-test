@@ -6,18 +6,22 @@ import 'prismjs/themes/prism.css'; // Example style, you can use another
 const CodeEditor: React.FC<{
   name: string;
   backgroundText: string;
+  code: string;
   onCodeUpdate: (text: string) => void;
   language?: 'javascript' | 'html' | 'css';
-}> = ({ language = 'javascript', name, backgroundText, onCodeUpdate }) => {
-  const [myCodeText, setMyCodeText] = useState('');
-
+}> = ({
+  code,
+  name,
+  onCodeUpdate,
+  backgroundText,
+  language = 'javascript',
+}) => {
   useEffect(() => {
     Prism.highlightAll();
-    onCodeUpdate(myCodeText);
-  }, [myCodeText, onCodeUpdate]);
+  }, [code]);
 
   const handleKeyDown = (evt: React.KeyboardEvent<HTMLTextAreaElement>) => {
-    let value = myCodeText;
+    let value = code;
     const selStartPos = evt.currentTarget.selectionStart;
 
     // handle 4-space indent on
@@ -32,7 +36,7 @@ const CodeEditor: React.FC<{
       evt.currentTarget.selectionEnd = selStartPos + 4;
       evt.preventDefault();
 
-      setMyCodeText(value);
+      onCodeUpdate(value);
     }
   };
 
@@ -45,12 +49,12 @@ const CodeEditor: React.FC<{
         id={name}
         name={name}
         className="code-input"
-        value={myCodeText}
-        onChange={(event) => setMyCodeText(event.target.value)}
+        value={code}
+        onChange={(event) => onCodeUpdate(event.target.value)}
         onKeyDown={handleKeyDown}
       />
       <pre className="code-output">
-        <code className={`language-${language}`}>{myCodeText}</code>
+        <code className={`language-${language}`}>{code}</code>
       </pre>
     </div>
   );

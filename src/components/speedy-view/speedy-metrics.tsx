@@ -67,7 +67,7 @@ const SpeedyMetrics: React.FC<{
         color="blue"
       />
       <SpeedyMetric
-        name="Corrected Words Per Minute"
+        name="Corrected WPM"
         value={`${metrics.correctedWordsPerMinute}`}
         Icon={GiBullseye}
         color="green"
