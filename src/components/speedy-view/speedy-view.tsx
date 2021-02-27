@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { diffChars } from 'diff';
 
 import { useGlobalConstantsHook } from '../../constants';
@@ -25,7 +25,7 @@ const SpeedyView: React.FC<{}> = () => {
     speedyCoderConfig.TOTAL_TIME,
     speedyCoderConfig.INTERVAL,
   );
-  const { start: startCountDown, reset: resetCountDown } = actions;
+  const { start: startCountDown /* , reset: resetCountDown */ } = actions;
 
   // set state to level 1
   useEffect(() => {
