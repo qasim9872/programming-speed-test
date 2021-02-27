@@ -6,14 +6,15 @@ import 'prismjs/themes/prism.css'; // Example style, you can use another
 const CodeEditor: React.FC<{
   name: string;
   backgroundText: string;
+  onCodeUpdate: (text: string) => void;
   language?: 'javascript' | 'html' | 'css';
-  onChange?: (event: React.ChangeEvent<HTMLTextAreaElement>) => void;
-}> = ({ language = 'javascript', name, backgroundText }) => {
+}> = ({ language = 'javascript', name, backgroundText, onCodeUpdate }) => {
   const [myCodeText, setMyCodeText] = useState('');
 
   useEffect(() => {
     Prism.highlightAll();
-  }, [myCodeText]);
+    onCodeUpdate(myCodeText);
+  }, [myCodeText, onCodeUpdate]);
 
   const handleKeyDown = (evt: React.KeyboardEvent<HTMLTextAreaElement>) => {
     let value = myCodeText;

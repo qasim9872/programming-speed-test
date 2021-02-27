@@ -34,7 +34,8 @@ const SpeedyMetrics: React.FC<{
     level: { index: number; title?: string };
     timeLeft: number;
     wordsPerMinute: number;
-    accuracy: number;
+    uncorrectedErrors: number;
+    correctedWordsPerMinute: number;
   };
 }> = ({ metrics }) => {
   const [displayTimeLeft, setDisplayTimeLeft] = useState('');
@@ -61,13 +62,13 @@ const SpeedyMetrics: React.FC<{
       />
       <SpeedyMetric
         name="Words Per Minute"
-        value={String(metrics.wordsPerMinute)}
+        value={`${metrics.wordsPerMinute}`}
         Icon={IoMdSpeedometer}
         color="blue"
       />
       <SpeedyMetric
-        name="Accuracy"
-        value={`${metrics.accuracy}%`}
+        name="Corrected Words Per Minute"
+        value={`${metrics.correctedWordsPerMinute}`}
         Icon={GiBullseye}
         color="green"
       />
