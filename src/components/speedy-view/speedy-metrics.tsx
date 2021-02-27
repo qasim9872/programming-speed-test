@@ -31,7 +31,7 @@ const SpeedyMetric: React.FC<{
 
 const SpeedyMetrics: React.FC<{
   metrics: {
-    level: string;
+    level: { index: number; title?: string };
     timeLeft: number;
     wordsPerMinute: number;
     accuracy: number;
@@ -48,8 +48,8 @@ const SpeedyMetrics: React.FC<{
   return (
     <div className="flex w-full lg:w-2/3 justify-around">
       <SpeedyMetric
-        name="Level"
-        value={metrics.level}
+        name={`Level ${metrics.level.index + 1}`}
+        value={metrics.level.title || ''}
         Icon={GiPunch}
         color="purple"
       />

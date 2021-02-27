@@ -35,10 +35,10 @@ const SpeedyView: React.FC<{}> = () => {
   }, [levelIndex, speedyCoderConfig]);
 
   return (
-    <div className="flex-grow flex flex-col w-full lg:w-2/3 mx-10 justify-center items-center">
+    <div className="flex-grow flex flex-col w-full mx-10 justify-center items-center">
       <SpeedyMetrics
         metrics={{
-          level: `${levelIndex + 1}. ${levelConfig?.title}`,
+          level: { index: levelIndex, title: levelConfig?.title },
           timeLeft: timeLeft || speedyCoderConfig.TOTAL_TIME,
           wordsPerMinute,
           accuracy,

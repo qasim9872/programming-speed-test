@@ -15,7 +15,7 @@ const LayoutBuilder: React.FC<{ layouts: Layout[] }> = ({ layouts }) => {
   return (
     <div className="flex flex-col mx-auto min-w-0 h-screen">
       {show.navbar && <Navbar title={title} layouts={showInNav} />}
-      <div className="h-full flex-grow text-black">
+      <div className="h-full flex-grow text-black flex justify-center">
         {enabledLayouts.map((module) => (
           <Route {...module.routeProps} key={module.name} />
         ))}

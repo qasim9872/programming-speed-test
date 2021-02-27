@@ -15,6 +15,26 @@ const CodeEditor: React.FC<{
     Prism.highlightAll();
   }, [myCodeText]);
 
+  const handleKeyDown = (evt: React.KeyboardEvent<HTMLTextAreaElement>) => {
+    let value = myCodeText;
+    const selStartPos = evt.currentTarget.selectionStart;
+
+    // handle 4-space indent on
+    if (evt.key === 'Tab') {
+      value = `${value.substring(0, selStartPos)}    ${value.substring(
+        selStartPos,
+        value.length,
+      )}`;
+      // eslint-disable-next-line no-param-reassign
+      evt.currentTarget.selectionStart = selStartPos + 3;
+      // eslint-disable-next-line no-param-reassign
+      evt.currentTarget.selectionEnd = selStartPos + 4;
+      evt.preventDefault();
+
+      setMyCodeText(value);
+    }
+  };
+
   return (
     <div className="w-full lg:w-2/3 h-80 code-edit-container">
       <pre className="code-output">
@@ -26,6 +46,7 @@ const CodeEditor: React.FC<{
         className="code-input"
         value={myCodeText}
         onChange={(event) => setMyCodeText(event.target.value)}
+        onKeyDown={handleKeyDown}
       />
       <pre className="code-output">
         <code className={`language-${language}`}>{myCodeText}</code>
