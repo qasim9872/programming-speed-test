@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import Prism from 'prismjs';
 import 'prismjs/components/prism-javascript';
-import 'prismjs/themes/prism.css'; // Example style, you can use another
+import 'prismjs/themes/prism.css';
 
 const CodeEditor: React.FC<{
   name: string;
