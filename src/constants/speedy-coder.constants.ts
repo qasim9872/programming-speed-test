@@ -13,10 +13,10 @@ const levels: CodeLevel[] = [
   },
   {
     title: 'For In Loop',
-    codeToType: `const names = [ 'Marcus', 'Norman', 'Christian' ]
+    codeToType: `const names = ['Marcus', 'Norman', 'Christian'];
 
 for (const index in names) {  
-  console.log(\`\${names[index]} is at position \${index}\`)
+    console.log(\`\${names[index]} is at position \${index}\`)
 }`,
   },
   {
