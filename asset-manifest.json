@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/speedy-coder/static/css/main.acafa17e.chunk.css",
-    "main.js": "/speedy-coder/static/js/main.e3a6cd5b.chunk.js",
-    "main.js.map": "/speedy-coder/static/js/main.e3a6cd5b.chunk.js.map",
+    "main.js": "/speedy-coder/static/js/main.df7d628d.chunk.js",
+    "main.js.map": "/speedy-coder/static/js/main.df7d628d.chunk.js.map",
     "runtime-main.js": "/speedy-coder/static/js/runtime-main.2480c3c8.js",
     "runtime-main.js.map": "/speedy-coder/static/js/runtime-main.2480c3c8.js.map",
     "static/css/2.e6025825.chunk.css": "/speedy-coder/static/css/2.e6025825.chunk.css",
@@ -20,6 +20,6 @@
     "static/css/2.e6025825.chunk.css",
     "static/js/2.8852101b.chunk.js",
     "static/css/main.acafa17e.chunk.css",
-    "static/js/main.e3a6cd5b.chunk.js"
+    "static/js/main.df7d628d.chunk.js"
   ]
 }
