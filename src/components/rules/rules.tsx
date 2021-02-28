@@ -7,6 +7,13 @@ const Rules: React.FC<{}> = () => {
         <h1 className="text-2xl lg:text-5xl">Are you a Speedy Coder?</h1>
       </div>
       <div className="p-3">How to play?</div>
+
+      <ul className="list-outside bg-rose-200 ...">
+        <li>The idea is simple. Type what you see, exactly as you see it.</li>
+        <li>Once you complete the code, you will proceed to the next level.</li>
+        <li>There are a total of 4 levels</li>
+        <li>You can press Tab to indent the code</li>
+      </ul>
     </div>
   );
 };

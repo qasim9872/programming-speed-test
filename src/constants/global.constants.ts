@@ -1,4 +1,4 @@
-import { NAME } from '../config/app.config';
+import { FULL_URL, NAME } from '../config/app.config';
 
 const MyGlobalConfig = {
   title: NAME,
@@ -11,6 +11,7 @@ const MyGlobalConfig = {
     navbar: true,
     footer: true,
   },
+  url: FULL_URL,
 };
 
 export default MyGlobalConfig;
