@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { diffChars } from 'diff';
 
 import { useGlobalConstantsHook } from '../../constants';
@@ -8,6 +8,7 @@ import logger from '../../services/logger';
 
 import CodeEditor from './code-editor';
 import SpeedyMetrics from './speedy-metrics';
+import SpeedyResult from './speedy-result';
 
 const SpeedyView: React.FC<{}> = () => {
   const [{ speedyCoder: speedyCoderConfig }] = useGlobalConstantsHook();
@@ -20,39 +21,70 @@ const SpeedyView: React.FC<{}> = () => {
   const [started, setStarted] = useState(false);
   const [typedCode, setTypedCode] = useState('');
   const [levelConfig, setLevelConfig] = useState<CodeLevel>();
+  const [avgCorrectedWpm, setAvgCorrectedWpm] = useState(0);
+  const [displayResult, setDisplayResult] = useState(false);
 
   const { timeLeft, actions } = useCountDown(
     speedyCoderConfig.TOTAL_TIME,
     speedyCoderConfig.INTERVAL,
   );
-  const { start: startCountDown /* , reset: resetCountDown */ } = actions;
+  const {
+    start: startCountDown,
+    reset: resetCountDown,
+    pause: pauseCountDown,
+  } = actions;
 
-  // set state to level 1
-  useEffect(() => {
-    setLevelIndex(0);
-    // startCountDown();
-  }, []);
+  const resetState = useMemo(
+    () => () => {
+      resetCountDown();
+      setStarted(false);
+      setDisplayResult(false);
+      setLevelIndex(0);
+      setWordsPerMinute(0);
+      setUncorrectedErrors(0);
+      setCorrectedWordsPerMinute(0);
+      setTypedCode('');
+      setAvgCorrectedWpm(0);
+    },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [],
+  );
 
   useEffect(() => {
-    if (!started && typedCode) {
-      startCountDown();
+    if (!started && !displayResult && typedCode) {
+      // this is when the user starts to type
       setStarted(true);
+      setDisplayResult(false);
+
+      startCountDown();
       logger.info('starting countdown.');
     }
-  }, [startCountDown, started, typedCode]);
+  }, [started, typedCode, displayResult, startCountDown]);
 
   // update level config
   useEffect(() => {
     const levels = speedyCoderConfig.CODE_LEVELS;
     logger.info(`setting level config => ${levelIndex}`, levels[levelIndex]);
+
+    // update average score across different levels
+    setAvgCorrectedWpm((previousAvgCorrectedWpm) =>
+      Math.floor((previousAvgCorrectedWpm + correctedWordsPerMinute) / 2),
+    );
+
     if (levels[levelIndex]) {
       setTypedCode(''); // reset text
-      const currentLevel = levels[levelIndex];
-      setLevelConfig(currentLevel);
+      const nextLevel = levels[levelIndex];
+      setLevelConfig(nextLevel);
     } else {
       logger.info('GAME ENDS');
+      setStarted(false);
+      setDisplayResult(true);
+
+      // reset state
+      pauseCountDown();
     }
-  }, [levelIndex, speedyCoderConfig]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [levelIndex]);
 
   // calculate uncorrected errors
   useEffect(() => {
@@ -80,7 +112,7 @@ const SpeedyView: React.FC<{}> = () => {
     if (typedCode.length === levelConfig?.codeToType.length) {
       setLevelIndex((previousLevel) => previousLevel + 1);
     }
-  }, [levelConfig, typedCode]);
+  }, [levelConfig, typedCode, timeLeft]);
 
   // calculate wpm and corrected wpm
   useEffect(() => {
@@ -126,6 +158,12 @@ const SpeedyView: React.FC<{}> = () => {
           onCodeUpdate={(code) => setTypedCode(code)}
         />
       )}
+
+      <SpeedyResult
+        open={displayResult}
+        onCloseModal={() => resetState()}
+        score={avgCorrectedWpm}
+      />
     </div>
   );
 };
