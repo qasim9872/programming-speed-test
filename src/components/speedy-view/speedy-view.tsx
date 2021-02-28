@@ -50,6 +50,18 @@ const SpeedyView: React.FC<{}> = () => {
     [],
   );
 
+  const endGame = useMemo(
+    () => () => {
+      logger.info('GAME ENDS');
+      setStarted(false);
+      setDisplayResult(true);
+
+      // reset state
+      pauseCountDown();
+    },
+    [pauseCountDown],
+  );
+
   useEffect(() => {
     if (!started && !displayResult && typedCode) {
       // this is when the user starts to type
@@ -76,12 +88,7 @@ const SpeedyView: React.FC<{}> = () => {
       const nextLevel = levels[levelIndex];
       setLevelConfig(nextLevel);
     } else {
-      logger.info('GAME ENDS');
-      setStarted(false);
-      setDisplayResult(true);
-
-      // reset state
-      pauseCountDown();
+      endGame();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [levelIndex]);
@@ -112,7 +119,14 @@ const SpeedyView: React.FC<{}> = () => {
     if (typedCode.length === levelConfig?.codeToType.length) {
       setLevelIndex((previousLevel) => previousLevel + 1);
     }
-  }, [levelConfig, typedCode, timeLeft]);
+  }, [levelConfig, typedCode]);
+
+  // end game when timer ends
+  useEffect(() => {
+    if (timeLeft === 0 && started) {
+      endGame();
+    }
+  }, [started, endGame, timeLeft]);
 
   // calculate wpm and corrected wpm
   useEffect(() => {

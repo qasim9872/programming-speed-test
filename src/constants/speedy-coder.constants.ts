@@ -3,16 +3,6 @@ export interface CodeLevel {
   codeToType: string;
 }
 
-// function isPrimeNumber(numberToCheck) {
-//     let isPrime = true;
-
-//     if (numberToCheck > 1) {
-
-//     }
-
-//     return isPrime;
-// }
-
 const levels: CodeLevel[] = [
   { title: 'Hello World', codeToType: "console.log('Hello World');" },
   {
@@ -21,12 +11,24 @@ const levels: CodeLevel[] = [
     return num1 + num2;
 }`,
   },
-  //   {
-  //     title: 'Is Prime Number',
-  //     codeToType: `function add(num1, num2) {
-  //     return num1 + num2;
-  // }`,
-  //   },
+  {
+    title: 'For In Loop',
+    codeToType: `const names = [ 'Marcus', 'Norman', 'Christian' ]
+
+for (const index in names) {  
+  console.log(\`\${names[index]} is at position \${index}\`)
+}`,
+  },
+  {
+    title: 'First HTTP Server',
+    codeToType: `const http = require('http');
+http
+  .createServer(function (req, res) {
+    res.writeHead(200, { 'Content-Type': 'text/plain' });
+    res.end('Hello Node.js World!');
+  })
+  .listen(8080);`,
+  },
 ];
 
 const SpeedyCoder = {
