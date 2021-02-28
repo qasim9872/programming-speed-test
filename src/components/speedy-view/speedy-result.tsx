@@ -10,7 +10,8 @@ const SpeedyResult: React.FC<{
   return (
     <Modal open={open} onClose={onCloseModal} center>
       <div className="flex m-5 p-5 text-black">
-        <h1>Your average WPM is {score}</h1>
+        <h1>Game Ends.</h1>
+        <h2>Your average WPM is {score}</h2>
       </div>
     </Modal>
   );
